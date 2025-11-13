@@ -9,7 +9,7 @@ Analysis of wind energy curtailment in Scotland's Orkney Islands, quantifying ~2
 ## 🔗 View Online
 
 - **[Presentation](Presentation.html)** - Project presentation (PDF viewer)
-- **[Full Report](Report_Web.html)** - Complete web-based report
+- **[Full Report](Report_Group_H.pdf)** - Complete project report (PDF)
 - **[Technical Analysis](Final_EDA_Group_H.html)** - Jupyter notebook with code and visualizations
 
 ## 📈 Key Results
