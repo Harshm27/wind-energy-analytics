@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Energy Curtailment Reduction - Full Report | Group H</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        header .meta {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 1rem;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.2rem;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .executive-summary {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-left: 5px solid #667eea;
+            margin: 2rem 0;
+            font-size: 1.1rem;
+        }
+
+        .key-metric {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .key-metric .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .key-metric .label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            border-left: 5px solid #0c5460;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        strong {
+            color: #667eea;
+        }
+
+        .section {
+            margin: 3rem 0;
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 2rem 3rem;
+            text-align: center;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.5rem;
+            }
+
+            header {
+                padding: 2rem 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Wind Energy Curtailment Reduction in Orkney Islands</h1>
+            <div class="subtitle">A Data-Driven Business Case for Kaluza</div>
+            <div class="meta">
+                Group H | Imperial College London<br>
+                MSc Business Analytics | Analytics in Business<br>
+                Academic Year 2024-2025
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="executive-summary">
+                <h2 style="margin-top: 0;">Executive Summary</h2>
+                <p>
+                    This report evaluates the business opportunity for Kaluza, a UK energy technology company, 
+                    to reduce wind energy curtailment in Scotland's Orkney Islands through strategic Demand Response (DR) programs. 
+                    Our analysis quantifies that approximately <strong>217 GWh of renewable energy is curtailed annually</strong> 
+                    across 500 wind turbines due to grid constraints and insufficient local demand.
+                </p>
+                <p>
+                    Through comprehensive data analysis of 2+ years of turbine telemetry and residential demand patterns, 
+                    we demonstrate that a DR program targeting <strong>50% household participation (~5,192 households)</strong> 
+                    could significantly reduce this waste while creating value for wind farmers, residents, and grid operators. 
+                    Our findings provide actionable insights for program design, pricing strategy, and stakeholder engagement.
+                </p>
+            </div>
+
+            <div class="toc">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#objectives">1. Objectives and Project Approach</a></li>
+                    <li><a href="#supply">2. Supply Analysis: Wind Energy Generation</a></li>
+                    <li><a href="#curtailment">3. Curtailment Estimation</a></li>
+                    <li><a href="#demand">4. Demand Analysis: Residential Consumption</a></li>
+                    <li><a href="#dr-modeling">5. Demand Response Modeling</a></li>
+                    <li><a href="#participation">6. Participation Requirements</a></li>
+                    <li><a href="#business-model">7. Business Model & Pricing Strategy</a></li>
+                    <li><a href="#recommendations">8. Conclusions & Recommendations</a></li>
+                </ul>
+            </div>
+
+            <section id="objectives" class="section">
+                <h1>1. Objectives and Project Approach</h1>
+                
+                <p>
+                    In order to evaluate the business opportunity for Kaluza, we address three fundamental questions:
+                </p>
+
+                <ol>
+                    <li><strong>How much energy is currently curtailed annually across the Orkney Isles?</strong></li>
+                    <li><strong>How much can this be reduced by different levels of DR penetration?</strong></li>
+                    <li><strong>How many local households would need to be on our DR scheme to supply this level of DR?</strong></li>
+                </ol>
+
+                <p>
+                    More broadly, this report details the business case of curtailment reduction on the Orkney Islands. At the core, the report:
+                </p>
+
+                <ul>
+                    <li>Analyzes supply-side dynamics through wind turbine telemetry data</li>
+                    <li>Examines demand-side patterns via residential consumption data</li>
+                    <li>Models demand-supply matching opportunities</li>
+                    <li>Develops pricing and revenue-sharing frameworks</li>
+                    <li>Provides strategic recommendations for program implementation</li>
+                </ul>
+            </section>
+
+            <section id="supply" class="section">
+                <h1>2. Supply Analysis: Wind Energy Generation</h1>
+
+                <h2>2.1 Data Overview</h2>
+                <p>
+                    Our supply analysis focuses on wind turbine telemetry data from a representative 900 kW turbine 
+                    in Rousay, one of the Orkney Islands. The dataset contains:
+                </p>
+
+                <ul>
+                    <li><strong>Timestamp:</strong> Minute-by-minute records from 2016-01-01 to 2018-01-01</li>
+                    <li><strong>Power_kw:</strong> Actual power output at each timestamp</li>
+                    <li><strong>Setpoint_kw:</strong> Target output set by control system (curtailment indicator)</li>
+                    <li><strong>Wind_ms:</strong> Wind speed measurement</li>
+                </ul>
+
+                <h2>2.2 Data Quality & Preprocessing</h2>
+                <p>
+                    We implemented rigorous data cleaning procedures:
+                </p>
+
+                <ul>
+                    <li><strong>Missing Values:</strong> Removed 2015 data due to extensive gaps (187 of 218 days missing)</li>
+                    <li><strong>Temporal Consistency:</strong> Verified 98% of data at consistent 1-minute intervals</li>
+                    <li><strong>Outlier Removal:</strong> Excluded anomalous readings where high wind speeds (>20 m/s) produced unexpectedly low power output (<800 kW)</li>
+                    <li><strong>Validation:</strong> Confirmed power output never significantly exceeded setpoint beyond measurement tolerance (~17.67 kW average overshoot)</li>
+                </ul>
+
+                <h2>2.3 Seasonal Patterns</h2>
+                <p>
+                    Time series analysis revealed clear seasonal trends in wind power generation:
+                </p>
+
+                <ul>
+                    <li><strong>Peak Generation:</strong> Spring months show highest output</li>
+                    <li><strong>Lowest Generation:</strong> Mid-to-late summer experiences significant drops</li>
+                    <li><strong>Winter Performance:</strong> Stable output around annual median</li>
+                </ul>
+
+                <div class="info-box">
+                    <h3>Key Insight: Wind Speed-Power Relationship</h3>
+                    <p>
+                        Wind turbine power output generally increases with the <strong>cube of wind speed</strong>, 
+                        making small velocity increases highly impactful. Our predictive models leveraging this 
+                        relationship achieved R² > 0.9, enabling accurate potential energy estimation.
+                    </p>
+                </div>
+            </section>
+
+            <section id="curtailment" class="section">
+                <h1>3. Curtailment Estimation</h1>
+
+                <h2>3.1 Methodology</h2>
+                <p>
+                    We developed a comprehensive methodology to quantify energy curtailment:
+                </p>
+
+                <ol>
+                    <li><strong>Predictive Modeling:</strong> Built forecasting models using wind speed to estimate maximum potential power output</li>
+                    <li><strong>Curtailment Calculation:</strong> Computed difference between potential maximum and actual output (governed by setpoint)</li>
+                    <li><strong>Energy Integration:</strong> Converted power (kW) to energy (kWh) by integrating over 30-minute intervals</li>
+                    <li><strong>Geographical Scaling:</strong> Adjusted for wind speed variations across 9 island locations</li>
+                    <li><strong>Fleet Extrapolation:</strong> Scaled from single turbine to all 500 turbines</li>
+                </ol>
+
+                <h2>3.2 Key Assumptions</h2>
+                <ul>
+                    <li><strong>Turbine Population:</strong> ~500 turbines across Orkney (source: Orkney Renewable Energy Forum)</li>
+                    <li><strong>Turbine Capacity:</strong> 900 kW rated capacity</li>
+                    <li><strong>Geographic Distribution:</strong> Evenly distributed across 9 community-owned wind farms (~60 turbines per site)</li>
+                    <li><strong>Wind Variations:</strong> Historical annual average wind speeds used to adjust estimates per location</li>
+                </ul>
+
+                <h2>3.3 Results</h2>
+
+                <div class="metrics-grid">
+                    <div class="key-metric">
+                        <div class="number">0.5289</div>
+                        <div class="label">GWh Curtailed<br>Rousay Turbine (2017)</div>
+                    </div>
+                    <div class="key-metric">
+                        <div class="number">0.4347</div>
+                        <div class="label">GWh Curtailed<br>Representative Turbine</div>
+                    </div>
+                    <div class="key-metric">
+                        <div class="number">~217</div>
+                        <div class="label">GWh Curtailed<br>All 500 Turbines</div>
+                    </div>
+                </div>
+
+                <p>
+                    After adjusting for geographical wind speed dispersion across nine locations (Burray, Flotta, Hoy, 
+                    Rousay, Shapinsay, Westray, Eday, Stronsay, and Sanday), the <strong>representative Orkney wind turbine 
+                    curtails 0.4347 GWh annually</strong>. Scaling to 500 turbines yields approximately <strong>217 GWh 
+                    of curtailed energy</strong> — a significant opportunity for Kaluza.
+                </p>
+            </section>
+
+            <section id="demand" class="section">
+                <h1>4. Demand Analysis: Residential Consumption</h1>
+
+                <h2>4.1 Data Overview</h2>
+                <p>
+                    Our demand analysis utilized residential energy consumption data covering 10,385 households 
+                    across Orkney Islands for the year 2017. The dataset provided 30-minute interval demand 
+                    measurements, enabling detailed pattern analysis.
+                </p>
+
+                <h2>4.2 Consumption Patterns</h2>
+
+                <h3>Daily Patterns</h3>
+                <ul>
+                    <li><strong>Morning Peak:</strong> Sharp rise around 8:00 AM (household preparations)</li>
+                    <li><strong>Evening Peak:</strong> Second surge around 7:00 PM (evening routines)</li>
+                    <li><strong>Off-Peak:</strong> Midday trough and overnight lows</li>
+                </ul>
+
+                <h3>Seasonal Variations</h3>
+                <ul>
+                    <li><strong>Summer:</strong> Lowest demand (reduced heating needs)</li>
+                    <li><strong>Winter:</strong> Highest demand (increased heating and lighting)</li>
+                    <li><strong>Spring/Autumn:</strong> Moderate, transitional demand levels</li>
+                </ul>
+
+                <div class="key-metric">
+                    <div class="number">121,504</div>
+                    <div class="label">kW Total Annual Demand<br>(10,385 Households)</div>
+                </div>
+
+                <h2>4.3 Demand-Curtailment Alignment</h2>
+                <p>
+                    A critical finding emerged from comparing curtailment and demand patterns: <strong>curtailment 
+                    peaks during summer months when residential demand is lowest</strong>. This inverse relationship 
+                    highlights both the challenge and opportunity for DR programs — shifting flexible loads to 
+                    high-generation periods can materially reduce waste.
+                </p>
+            </section>
+
+            <section id="dr-modeling" class="section">
+                <h1>5. Demand Response Modeling</h1>
+
+                <h2>5.1 DR Potential Calculation</h2>
+                <p>
+                    We estimated total DR potential based on controllable household loads:
+                </p>
+
+                <ul>
+                    <li><strong>Controllable Loads:</strong> Heating systems, electric vehicles, water heaters, smart appliances</li>
+                    <li><strong>Controllability Factor:</strong> 50% (conservative estimate based on industry standards)</li>
+                    <li><strong>Total DR Potential:</strong> 121,504 kW × 0.5 = <strong>60,752 kW</strong></li>
+                </ul>
+
+                <h2>5.2 DR Penetration Scenarios</h2>
+                <p>
+                    We modeled four DR penetration levels to assess curtailment reduction:
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DR Level</th>
+                            <th>Target Reduction (kW)</th>
+                            <th>Impact on Demand</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>10% DR</strong></td>
+                            <td>12,150 kW</td>
+                            <td>10% monthly demand reduction</td>
+                        </tr>
+                        <tr>
+                            <td><strong>20% DR</strong></td>
+                            <td>24,301 kW</td>
+                            <td>20% monthly demand reduction</td>
+                        </tr>
+                        <tr>
+                            <td><strong>30% DR</strong></td>
+                            <td>36,451 kW</td>
+                            <td>30% monthly demand reduction</td>
+                        </tr>
+                        <tr>
+                            <td><strong>50% DR</strong></td>
+                            <td>60,752 kW</td>
+                            <td>50% monthly demand reduction</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <h3>Environmental & Economic Impact (50% DR Scenario)</h3>
+                    <ul>
+                        <li><strong>Annual Energy Avoided:</strong> 22.17 million kWh</li>
+                        <li><strong>CO₂ Savings:</strong> ~6,652 tonnes annually</li>
+                        <li><strong>Grid Cost Avoidance:</strong> ~$9.1 million per year</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="participation" class="section">
+                <h1>6. Participation Requirements</h1>
+
+                <h2>6.1 Household Recruitment Targets</h2>
+                <p>
+                    To translate DR targets into operational thresholds, we calculated required household participation:
+                </p>
+
+                <p style="text-align: center; margin: 2rem 0;">
+                    <strong>Households Required = (Total Annual Demand × DR Level) / Average Household Annual Demand</strong>
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DR Penetration Level</th>
+                            <th>Households Required</th>
+                            <th>% of Total (10,385)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>10% DR</strong></td>
+                            <td>1,038</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>20% DR</strong></td>
+                            <td>2,077</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>30% DR</strong></td>
+                            <td>3,115</td>
+                            <td>30%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>50% DR</strong></td>
+                            <td>5,192</td>
+                            <td>50%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>6.2 Implementation Roadmap</h2>
+                <p>
+                    We recommend a phased rollout approach:
+                </p>
+
+                <ul>
+                    <li><strong>Phase 1 (Year 1):</strong> Pilot with 1,000-1,500 households (10-15% DR) to test systems and refine offerings</li>
+                    <li><strong>Phase 2 (Year 2):</strong> Scale to 3,000 households (30% DR) based on pilot learnings</li>
+                    <li><strong>Phase 3 (Year 3+):</strong> Target 5,000+ households (50% DR) for maximum impact</li>
+                </ul>
+            </section>
+
+            <section id="business-model" class="section">
+                <h1>7. Business Model & Pricing Strategy</h1>
+
+                <h2>7.1 Revenue Sharing Framework</h2>
+                <p>
+                    We analyzed five revenue-sharing scenarios to balance stakeholder interests:
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Wind Farmers</th>
+                            <th>Kaluza</th>
+                            <th>Residents</th>
+                            <th>Assessment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>60-20-20</td>
+                            <td>60%</td>
+                            <td>20%</td>
+                            <td>20%</td>
+                            <td>Low resident incentive</td>
+                        </tr>
+                        <tr>
+                            <td>50-30-20</td>
+                            <td>50%</td>
+                            <td>30%</td>
+                            <td>20%</td>
+                            <td>Moderate balance</td>
+                        </tr>
+                        <tr>
+                            <td>40-40-20</td>
+                            <td>40%</td>
+                            <td>40%</td>
+                            <td>20%</td>
+                            <td>Platform-heavy</td>
+                        </tr>
+                        <tr style="background: #d4edda;">
+                            <td><strong>40-30-30</strong></td>
+                            <td><strong>40%</strong></td>
+                            <td><strong>30%</strong></td>
+                            <td><strong>30%</strong></td>
+                            <td><strong>Recommended</strong></td>
+                        </tr>
+                        <tr>
+                            <td>30-40-30</td>
+                            <td>30%</td>
+                            <td>40%</td>
+                            <td>30%</td>
+                            <td>May limit farmer buy-in</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h3>Recommended Model: 40-30-30</h3>
+                    <p>
+                        The <strong>40-30-30 split</strong> (Wind Farmers - Kaluza - Residents) provides optimal balance:
+                    </p>
+                    <ul>
+                        <li>Sufficient incentive for wind farmers to participate</li>
+                        <li>Sustainable margins for Kaluza platform operations</li>
+                        <li>Attractive savings for residents to drive adoption</li>
+                    </ul>
+                </div>
+
+                <h2>7.2 Incentive Cost Modeling</h2>
+                <p>
+                    We modeled program costs at varying payout rates ($0.50, $1.00, $2.00 per kW reduced):
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DR Level</th>
+                            <th>$0.50/kW</th>
+                            <th>$1.00/kW</th>
+                            <th>$2.00/kW</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10% DR</td>
+                            <td>$6,075</td>
+                            <td>$12,150</td>
+                            <td>$24,300</td>
+                        </tr>
+                        <tr>
+                            <td>20% DR</td>
+                            <td>$12,150</td>
+                            <td>$24,301</td>
+                            <td>$48,602</td>
+                        </tr>
+                        <tr>
+                            <td>30% DR</td>
+                            <td>$18,226</td>
+                            <td>$36,451</td>
+                            <td>$72,902</td>
+                        </tr>
+                        <tr>
+                            <td>50% DR</td>
+                            <td>$30,376</td>
+                            <td>$60,752</td>
+                            <td>$121,504</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    These cost structures inform pricing strategy and enable Kaluza to balance competitiveness 
+                    with profitability across different market segments and growth phases.
+                </p>
+            </section>
+
+            <section id="recommendations" class="section">
+                <h1>8. Conclusions & Recommendations</h1>
+
+                <h2>8.1 Key Findings Summary</h2>
+                <ul>
+                    <li><strong>Significant Opportunity:</strong> ~217 GWh of renewable energy curtailed annually represents substantial value capture potential</li>
+                    <li><strong>Feasible Scale:</strong> 50% household participation (5,192 households) can deliver meaningful curtailment reduction</li>
+                    <li><strong>Inverse Patterns:</strong> Curtailment peaks in summer when demand is lowest — DR programs must incentivize strategic load shifting</li>
+                    <li><strong>Environmental Impact:</strong> 50% DR scenario saves 6,652 tonnes CO₂ annually</li>
+                    <li><strong>Economic Viability:</strong> Multiple revenue-sharing models support sustainable business case</li>
+                </ul>
+
+                <h2>8.2 Strategic Recommendations</h2>
+
+                <h3>For Kaluza</h3>
+                <ol>
+                    <li><strong>Phased Rollout:</strong> Begin with 10% DR pilot (1,000 households), scale to 50% over 3 years</li>
+                    <li><strong>Balanced Pricing:</strong> Adopt 40-30-30 revenue split with $1.00/kW payout as baseline</li>
+                    <li><strong>Technology Investment:</strong> Develop user-friendly mobile app for automated load management</li>
+                    <li><strong>Stakeholder Engagement:</strong> Build partnerships with wind farmers and local government early</li>
+                    <li><strong>Data Infrastructure:</strong> Implement real-time monitoring to optimize curtailment-demand matching</li>
+                </ol>
+
+                <h3>For Policy Makers</h3>
+                <ul>
+                    <li>Provide regulatory support for DR programs in island communities</li>
+                    <li>Offer subsidies or grants for pilot programs demonstrating curtailment reduction</li>
+                    <li>Streamline data-sharing between grid operators, wind farms, and DR platforms</li>
+                </ul>
+
+                <h3>For Residents</h3>
+                <ul>
+                    <li>Participation reduces energy costs while supporting local renewable energy</li>
+                    <li>Automated systems minimize lifestyle disruption</li>
+                    <li>Contributes to Orkney's sustainability leadership</li>
+                </ul>
+
+                <h2>8.3 Future Research</h2>
+                <p>
+                    Further analysis could explore:
+                </p>
+                <ul>
+                    <li>Battery storage integration to complement DR programs</li>
+                    <li>Commercial and industrial demand response opportunities</li>
+                    <li>Cross-island load balancing through smart grid technologies</li>
+                    <li>Long-term wind generation forecasting under climate change scenarios</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>Final Verdict</h3>
+                    <p>
+                        Our analysis demonstrates a <strong>compelling business case</strong> for Kaluza to pursue 
+                        demand response programs in Orkney Islands. The combination of significant curtailment, 
+                        feasible participation targets, and multiple viable pricing models positions this as a 
+                        <strong>high-impact, sustainable opportunity</strong> in the renewable energy transition.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p><strong>Group H</strong></p>
+            <p>Imperial College London | MSc Business Analytics</p>
+            <p>Analytics in Business | 2024-2025</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">
+                For inquiries or collaboration opportunities, please contact the team through Imperial College London.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+
